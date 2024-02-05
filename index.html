@@ -1,374 +1,213 @@
-<html>
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar with Search Box</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Unicons CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+</head>
+<style>
+    /* CSS Styles */
+
+/* Google Fonts - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #16171D;
+}
+
+.navbar {
+    background-color: #16171D;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin: 0 20px;
+}
+
+.logo img {
+    width: 100px;
+    border-radius: 50px;
+    box-shadow: 0 0 40px rgba(255, 2, 8, 0.5);
+}
+
+.search-bar {
+    margin-right: 20px;
     
     
-   </head>
-  <title>CaptureTone</title>
- <style>
-   body{
-     font-family:Arial, Sans-Serif, Aspire ;
-     margin: 0;
-     padding: 0;
-     background-color: white;
-   }
-   .nav{
-     display: flex;
-     background-color: #F5F5F5;
-     padding:50px 50px;
-     justify-content: space-between;
-   }
-   .logo{
-     font-size: 60px;
-     font-weight: bold;
-     color:#191919;
-     font-family: Alegreya Sans SC;
-   }
-   .use_app{
-     font-family: Alegreya Sans SC;
-        text-decoration: none;
-        background-color: #0057FF;
-        color: white;
-        margin-bottom:0px;
-        margin-right: 10px;
-        padding: 30px 80px;
-        font-size: 30px;
-        text-decoration: none;
-        border-radius:50px;
-      }
-    .search-box {
-        display: flex;
-        align-items: center;
-        border:0px solid #ccc;
-        margin: 0px; 
-        padding: 80px 50px;
-      }
-      .search-input {
-        font-size: 30px;
-        padding: 60px 50px;
-        border: 1px solid #ccc;
-        border-radius: 90px;
-        margin-right: 10px; 
-      } 
-      .container {
-        position: relative;
-        text-align: center;
-        color: white;
-        
-      }
-      .centered {
-        position: absolute;
-        font-size: 30px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .td_image:hover{
-        border: 0px solid #0057FF;
-      }
-      table {
-        border-spacing:30px;
-    }
-    .card{
-     border: 0px solid black;
-     max-width: 800px;
-     margin: auto;
-     text-align: left;
-     font-family: ;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-     margin-bottom: 100px;
-   }
-   .card_img{
-     width:100% ;
-   }
-   .card_name{
-     padding-left: 20px;
-     color: black;
-     font-size: 16px;
-   }
-   .card_name2{
-     padding-left: 20px;
-     padding-bottom: 30px;
-     color: black;
-     font-size: 10px;
-   }
-   .footer{
-      background-color: #F5F5F5;
-   }
-   .footer_heading{
-     text-align: center;
-     font-size: 20px;
-     padding-top: 50px;
-   }
-   .footer_text{
-     text-align: center;
-     font-size: 10px;
-     margin-left: 50px;
-     margin-right: 50px;
-     padding-top:20px;
-   }
-   .icon{
+}
+
+.search-bar input[type="text"] {
+    width: 500px;
+    background: #212030;
+    color: white;
+    height: 70px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #D7D7D7; /* Set your desired placeholder color */
+}
+.header_song {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.header_songs {
+    border: 0px solid red;
+}
+
+.header_songs p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #D7D7D8;
     text-align: center;
-    padding-top: 10px;
-   }
-   .fa {
-  padding: 10px;
-  font-size: 20px;
-  width: 20px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
 }
 
-
- .fa-facebook {
-  background: #3B5998;
-  color: white;
+.header_songs_logo {
+    width: 170px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
+.music-player {
+    width:300px;
+    height: 100px;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-width: 1000px;
+    z-index: 9999;
 }
 
-.fa-instagram {
-  background: #AC2BAC;
-  color: white;
+.music-player-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.music-player-title {
+    font-size: 30px;
+    padding: 15px;
+    color: #333;
+    font-weight: 600;
+}
 
-.fa-youtube {
-  background: #bb0000;
-  color: white;
+.music-player-controls {
+    display: flex;
+    align-items: center;
 }
-.under_footer{
-  background: #E5E4E2;
-  padding-top: 10px;
-  padding-bottom:10px;
-  font-size:5px ;
+
+.music-player-controls button {
+    background-color: transparent;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin: 0 10px;
 }
-#preloader{
-  background:#0A1239 url(https://i.postimg.cc/FsdwQbGH/km-20240103-480p-15f-20240103-150000.gif) no-repeat center;
-  background-size: 50%;
-  height:100vh;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-}
- </style>
-  <body>
-    <div id="preloader"></div>
-<div class="nav">
-  <div class="logo">
-    CaptureTone
-  </div>
-  <div> <a href="#downlode" class="use_app">Use App</a></div>
-</div>
-<div class="search-box">
-    <input type="text" class="search-input" placeholder="Search..." style="width:100%; height:50px">
-      <!--<a href="#Search">
-        <i class="fas fa-search" style="color:#13D0CA;"></i>-->
-      </a>
-     </div>
-     
+</style>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://i.postimg.cc/WzgPmBpg/Untitled10-20240205173941.png" alt="Logo">
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+    </nav>
+
+    <!-- Table of Songs -->
+    <div class="header_song">
+        <table style="border:px solid blue; border-spacing: 100px;">
+            <tr class="header_songs">
+                <td>
+                    <img class="header_songs_logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdlpJkYFMr7Ojh4rake_BPUlEFvl-LIQSQPg&usqp=CAU" onclick="playSong('https://raag.fm/files/mp3/128/Hindi-Singles/24945/Zihaal E Miskin - (Raag.Fm).mp3', 'Zihale Maskin')">
+                    <p>Zihale Maskin</p>
+                </td>
+                <td>
+                    <img class="header_songs_logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQyJDwo4G9FNsQ8rCHvRzdfwzbjB-h1xsaNg&usqp=CAU" onclick="playSong('https://raag.fm/files/mp3/128/Hindi/2565984/Afreen Afreen - (Raag.Fm).mp3', 'Afreen Afreen')">
+                    <p>Afreen Afreen</p>
+                </td>
+                <td>
+                    <img class="header_songs_logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpgd02dVTUK46jJ8ZU6rNsVmynjNsBz8z1Dw&usqp=CAU" onclick="playSong('https://raag.fm/files/mp3/128/Punjabi-Singles/25527/Kalaastar - (Raag.Fm).mp3', 'Kalaastar')">
+                    <p>Kalaastar</p>
+                </td>
+                <td>
+                    <img class="header_songs_logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ-PtV54o9W2gLuUzYr7fPeTlT7NMClU2i3w&usqp=CAU" onclick="playSong('https://raag.fm/files/mp3/128/Hindi/1139549/Tum Hi Ho - (Raag.Fm).mp3', 'Tum hi ho')">
+                    <p>Tum hi ho</p>
+                </td>                
+                <!-- Add more song entries as needed -->
+            </tr>
+        </table>
+    </div>
+
+    <!-- mini Music Player -->
+    <div id="music-player" class="music-player">
+        <div class="music-player-inner">
+            <div class="music-player-title" id="music-title">Song Title</div>
+            <div class="music-player-controls">
+                <button id="play-pause-btn"><i class="uil uil-play"></i></button>
+                <button id="stop-btn"><i class="uil uil-stop"></i></button>
+            </div>
+        </div>
+    </div>
     
-     
-     <div  style="overflow-x:auto; margin-top:-80px; padding:5px 0px; border:0px solid #ccc; width:100%">
-      <table>
-        <td class="td">
-          <div class="container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFTVt3RVr-C7K1Enzwi82BjO2v-saqw7f6xg&usqp=CAU" alt="Snow" class="td_image" style="width:250px; border-radius:90px;">
-            <div class="centered">Cinematic</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://i.postimg.cc/sXcHN6pV/pexels-photo-1629236.jpg" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Abstract</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/584302/pexels-photo-584302.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Aerial</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/635499/pexels-photo-635499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Animals</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Architecture</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/5400806/pexels-photo-5400806.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Black & White</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/750225/pexels-photo-750225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Close up</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/952437/pexels-photo-952437.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Events</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/5638701/pexels-photo-5638701.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Family</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/1090387/pexels-photo-1090387.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Fashion</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/7054779/pexels-photo-7054779.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Fine Art</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Food</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Landscape</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/2832026/pexels-photo-2832026.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Nature</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/713664/pexels-photo-713664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Night</div>        </div>
-            
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/214576/pexels-photo-214576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">People</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/1661950/pexels-photo-1661950.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Sports</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/207896/pexels-photo-207896.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:50px;">
-            <div class="centered">Travel</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/103567/pexels-photo-103567.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Snow" style="width:250px; border-radius:50px;">
-            <div class="centered">Water</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/242124/pexels-photo-242124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Urban</div>        </div>
-        </td>
-        
-        <td class="td">
-          <div class="container">
-            <img src="https://images.pexels.com/photos/752842/pexels-photo-752842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Snow" style="width:250px; border-radius:90px;">
-            <div class="centered">Wedding</div>        </div>
-        </td>
-      </table>
-  </div>
-  <div class="card_local">
-   <div class="card">
-     <a href="">
-     <img class="card_img" src="https://i.postimg.cc/qRX6gnwg/IMG-20231224-213049-720.jpg">
-     </a>
-     <h1 class="card_name">Cinematic Lightroom Preset</h1>
-     <p class="card_name2"> Presets and more</p>
-   </div>
-   
-   <div class="card">
-     <a href="">
-     <img class="card_img" src="https://i.postimg.cc/265rFDGr/IMG-20231224-212319-733.jpg">
-     </a>
-     <h1 class="card_name">Coldest Lightroom Preset</h1>
-     <p class="card_name2"> Presets and more</p>
-   </div>   
-   
-   <div class="card">
-     <a href="#Lightroom">
-     <img class="card_img" src="https://i.postimg.cc/yxPHJhkQ/IMG-20231224-215644-472.jpg">
-     </a>
-     <h1 class="card_name">Wedding Lightroom Preset</h1>
-     <p class="card_name2"> Presets and more</p>
-   </div>   
-   
-   <div class="card">
-     <a href="#Lightroom">
-     <img class="card_img" src="https://i.postimg.cc/5yQk57Fs/IMG-20231224-211227-209.jpg">
-     </a>
-     <h1 class="card_name">Urban Lightroom Preset</h1>
-     <p class="card_name2"> Presets and more</p>
-   </div>
-   
-   <div class="card">
-     <a href="#Lightroom">
-     <img class="card_img" src="https://i.postimg.cc/90S0KM0W/IMG-20231224-211802-042.jpg">
-     </a>
-     <h1 class="card_name">Urban Lightroom Preset</h1>
-     <p class="card_name2"> Presets and more</p>
-   </div>
-   </div>
-   <footer class="footer">
-     <div class="footer_heading"><b>CaptureTone</b></div>
-     <div class="footer_text">Elevate your photos with our exquisite Lightroom presets collection. From vibrant landscapes to stunning portraits, effortlessly enhance your images with one-click adjustments for a professional and polished look.</div>
-     <div class="icon">
-  <a href="https://www.facebook.com/debjyotipal.debjyotipal.9?mibextid=ZbWKwL"  class="fa fa-facebook"></a>
-  
-  <a href="#twitter" class="fa fa-twitter"></a>
-  
-  <a href="https://instagram.com/dylan_davis_4934" class="fa fa-instagram"></a>
-  
-  <a href="#youtube" class="fa fa-youtube"></a>
-<div class="under_footer"> <p> © all copyright recived by CaptureTone</p></div>
-     </div>
-   </footer>
-   
-   
-   
-   
-   
-   
-   <script>
-     var loader=document.getElementById("preloader");
-     
-     window.addEventListener("load", function(){loader.style.display="none";})
-   </script>
-  </body>
+
+    <!-- JavaScript -->
+    <script>
+        let audio = null;
+
+        function playSong(songFileName, songTitle) {
+            if (audio && !audio.paused) {
+                audio.pause();
+            }
+
+            audio = new Audio(songFileName);
+            audio.play();
+            document.getElementById('music-player').style.display = 'block';
+            document.getElementById('music-title').innerText = songTitle;
+
+            var playPauseBtn = document.getElementById('play-pause-btn');
+            playPauseBtn.innerHTML = '<i class="uil uil-pause"></i>';
+            playPauseBtn.onclick = function() {
+                if (audio.paused) {
+                    audio.play();
+                    playPauseBtn.innerHTML = '<i class="uil uil-pause"></i>';
+                } else {
+                    audio.pause();
+                    playPauseBtn.innerHTML = '<i class="uil uil-play"></i>';
+                }
+            }
+
+            var stopBtn = document.getElementById('stop-btn');
+            stopBtn.onclick = function() {
+                audio.pause();
+                audio.currentTime = 0;
+                playPauseBtn.innerHTML = '<i class="uil uil-play"></i>';
+            }
+        }
+    </script>
+</body>
 </html>
